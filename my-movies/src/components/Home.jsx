@@ -1,10 +1,16 @@
+import Sidenav from "../templates/Sidenav"
+import Topnav from "../templates/Topnav"
 
 const Home = () => {
     document.title = 'MovieApp | Homepage'
   return (
-    <div>
-      Hello Moto
+    <>
+    <Sidenav />
+    <div className="w-[80%] h-full" >
+    <Topnav />
     </div>
+    
+    </>
   )
 }
 

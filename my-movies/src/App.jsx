@@ -3,7 +3,7 @@ import Home from './components/Home';
 
 function App() {
   return (
-      <div className="w-screen h-screen">
+      <div className="flex bg-[#1f1E24] w-screen h-screen">
         <Routes>
           <Route path='/' element={ <Home />} />
         </Routes>
