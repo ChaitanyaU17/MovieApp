@@ -1,5 +1,5 @@
-import Sidenav from "../templates/Sidenav"
-import Topnav from "../templates/Topnav"
+import Sidenav from "./partials/Sidenav"
+import Topnav from "./partials/Topnav"
 
 const Home = () => {
     document.title = 'MovieApp | Homepage'
@@ -9,7 +9,6 @@ const Home = () => {
     <div className="w-[80%] h-full" >
     <Topnav />
     </div>
-    
     </>
   )
 }
