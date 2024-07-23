@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import axios from '../../utils/axios';
+import noimage from '/noimage.jpg';
 
 const Topnav = () => {
     const[query, setQuery] = useState('');
@@ -9,7 +10,7 @@ const Topnav = () => {
     const GetSearches = async () => {
       try {
         const response = await axios.get(`/search/multi?query=${query}`);
-        console.log(response.data);
+        //console.log(response);
         setSearches(response.data.results);
       }  catch(err) {
         console.log('Error: ', err)
@@ -38,14 +39,27 @@ const Topnav = () => {
       )}
 
       {searches.length > 0 && (
-      <div className="absolute top-[90%] w-[50%] max-h-[50vh] bg-zinc-200 overflow-auto rounded ">
-        {searches.map((s, i) => (
-          <Link key={i} className="hover:text-zinc-900 hover:bg-zinc-300 duration-300 font-semibold text-zinc-600 w-full p-5 flex justify-start items-center border-b-2 border-zinc-100">
-            {/* <img src="" alt="" /> */}
-            <span>{s.title || s.name || s.original_name || s.original_title}</span>
-          </Link>
-        ))}
-      </div>
+        <div className="absolute top-[90%] w-[50%] max-h-[50vh] bg-zinc-200 overflow-auto rounded ">
+          {searches.map((s, i) => (
+            <Link
+              key={i}
+              className="hover:text-zinc-900 hover:bg-zinc-300 duration-300 font-semibold text-zinc-600 w-full p-5 flex justify-start items-center border-b-2 border-zinc-100"
+            >
+              <img
+                className="w-[10vh] h-[10vh] object-cover rounded mr-5 shadow-lg"
+                src={
+                  s.backdrop_path || s.profile_path ? `https://image.tmdb.org/t/p/original/${s.backdrop_path || s.profile_path 
+                  }` : noimage
+                }
+                alt=""
+              />
+
+              <span>
+                {s.title || s.name || s.original_name || s.original_title}
+              </span>
+            </Link>
+          ))}
+        </div>
       )}
     </div>
   );
