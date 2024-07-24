@@ -18,7 +18,7 @@ const Topnav = () => {
     };
   
     useEffect(() => {
-      GetSearches();
+        GetSearches();
     }, [query])
 
   return (
@@ -39,11 +39,11 @@ const Topnav = () => {
       )}
 
       {searches.length > 0 && (
-        <div className="absolute top-[90%] w-[50%] max-h-[50vh] bg-zinc-200 overflow-auto rounded ">
+        <div className="absolute top-[100%] w-[50%] max-h-[50vh] left-[20%] bg-zinc-200 overflow-auto rounded ">
           {searches.map((s, i) => (
             <Link
               key={i}
-              className="hover:text-zinc-900 hover:bg-zinc-300 duration-300 font-semibold text-zinc-600 w-full p-5 flex justify-start items-center border-b-2 border-zinc-100"
+              className="hover:text-zinc-900 hover:underline hover:bg-zinc-300 duration-300 font-semibold text-zinc-600 w-full p-5 flex justify-start items-center border-b-2 border-zinc-100"
             >
               <img
                 className="w-[10vh] h-[10vh] object-cover rounded mr-5 shadow-lg"
