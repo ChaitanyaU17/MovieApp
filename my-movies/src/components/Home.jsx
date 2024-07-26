@@ -55,6 +55,8 @@ const Home = () => {
         <div className="my-5 flex justify-between p-5">
           <h1 className="font-semibold text-2xl text-zinc-400">Trending</h1>
 
+          {/* display the api results each category */}
+
           <Dropdown
             title="Filter"
             options={["tv", "movie", "all"]}
