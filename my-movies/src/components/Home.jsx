@@ -8,7 +8,7 @@ import Dropdown from "./partials/Dropdown";
 import Loading from "./partials/Loading";
 
 const Home = () => {
-  document.title = "MovieApp | Homepage";
+  document.title = "CGMultiplex | Homepage";
 
   const [wallpaper, setWallpaper] = useState([]);
   const [trending, setTrending] = useState(null);
