@@ -4,7 +4,6 @@ import axios from "../../utils/axios";
 import Cards from "./Cards";
 import Topnav from "./Topnav";
 import Loading from "./Loading";
-import Dropdown from "./Dropdown";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const People = () => {

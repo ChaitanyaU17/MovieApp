@@ -14,11 +14,24 @@ const Cards = ({ data }) => {
             }`}
             alt=""
           />
-          
+
           <h1 className="text-xl text-zinc-400 mt-2 font-semibold">
-          {c.title || c.name || c.original_name || c.original_title}
+            {(c.title || c.name || c.original_name || c.original_title).length >
+            20
+              ? (
+                  c.title ||
+                  c.name ||
+                  c.original_name ||
+                  c.original_title
+                ).slice(0, 17) + "..."
+              : c.title || c.name || c.original_name || c.original_title}
           </h1>
-          
+
+          {c.vote_average && (
+            <div className="absolute right-[-10%] bottom-[24%] w-[5vh] h-[5vh] text-sm font-semibold bg-yellow-600 text-white rounded-full flex justify-center items-center">
+              {(c.vote_average * 10).toFixed()} <sup>%</sup>
+            </div>
+          )}
         </Link>
       ))}
     </div>
