@@ -18,7 +18,7 @@ const People = () => {
     try {
       const response = await axios.get(`/person/${category}?page=${page}`);
       //setTrending(response?.data?.results);
-      console.log(response.data);
+      console.log(response);
       if (response.data.results.length > 0) {
         setPeople((prevState) => [...prevState, ...response.data.results]);
         setPage(page + 1);
