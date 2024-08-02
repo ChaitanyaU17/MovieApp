@@ -5,7 +5,7 @@ import axios from "../utils/axios";
 import Header from "./partials/Header";
 import HorizontalCards from "./partials/HorizontalCards";
 import Dropdown from "./partials/Dropdown";
-import Loading from "./partials/Loading";
+import Loading from "./Loading";
 
 const Home = () => {
   document.title = "CGMultiplex | Homepage";

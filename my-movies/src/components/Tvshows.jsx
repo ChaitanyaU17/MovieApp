@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
-import axios from '../../utils/axios';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import Topnav from './Topnav';
-import Dropdown from './Dropdown';
-import Cards from './Cards';
-import Loading from './Loading';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from '../utils/axios';
+import Cards from "./partials/Cards";
+import Topnav from "./partials/Topnav";
+import Loading from "./Loading";
+import Dropdown from "./partials/Dropdown";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-const Movie = () => {
+const Tvshows = () => {
     const navigate = useNavigate();
-    const [category, setCategory] = useState("now_playing");
-    const [movies, setMovies] = useState([]);
+    const [category, setCategory] = useState("airing_today");
+    const [tvshow, setTvshow] = useState([]);
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
-    document.title = "CGMultiplex | Movies ";
+    document.title = "CGMultiplex | Tv Shows ";
   
-    const GetMovies = async () => {
+    const GetTvshow = async () => {
       try {
-        const response = await axios.get(`/movie/${category}?page=${page}`);
+        const response = await axios.get(`/tv/${category}?page=${page}`);
         //setTrending(response?.data?.results);
         console.log(response.data);
         if (response.data.results.length > 0) {
-          setMovies((prevState) => [...prevState, ...response.data.results]);
+          setTvshow((prevState) => [...prevState, ...response.data.results]);
           setPage(page + 1);
         } else {
           setHasMore(false);
@@ -35,12 +35,12 @@ const Movie = () => {
     //console.log(trending);
   
     const refreshHandler = () => {
-     if (movies.length === 0) {
-      GetMovies();
+     if (tvshow.length === 0) {
+      GetTvshow();
      } else {
        setPage(1);
-       setMovies([]);
-       GetMovies();
+       setTvshow([]);
+       GetTvshow();
      }
     };
   
@@ -48,7 +48,7 @@ const Movie = () => {
       refreshHandler();
     }, [category]);
   
-    return movies.length > 0 ? (
+    return tvshow.length > 0 ? (
       <div className="h-screen w-screen">
         <div className="w-full flex items-center justify-between px-[5%]">
           <h1 className="text-xl font-semibold text-zinc-400">
@@ -57,14 +57,14 @@ const Movie = () => {
               onClick={() => navigate(-1)}
               className="hover:text-[#6556cd] ri-arrow-left-fill"
             ></i>{"  "}
-            Movies {" "}<small className='text-sm text-zinc-500'>({category})</small>
+            Tv Shows {" "}<small className='text-sm text-zinc-500'>({category})</small>
           </h1>
   
           <div className="flex items-center w-[80%]">
             <Topnav />
             <Dropdown
               title="Category"
-              options={["popular", "top_rated", "upcoming", "now_playing"]}
+              options={["on_the_air", "popular", "top_rated", "airing_today"]}
               func={(e) => setCategory(e.target.value)}
             />
           </div>
@@ -72,11 +72,11 @@ const Movie = () => {
   
         <InfiniteScroll
           hasMore={hasMore}
-          next={GetMovies}
-          dataLength={movies.length}
+          next={GetTvshow}
+          dataLength={tvshow.length}
           loader={<h1>Loading...</h1>}
         >
-          <Cards data={movies} title={category} />
+          <Cards data={tvshow} title={category} />
         </InfiniteScroll>
       </div>
     ) : (
@@ -84,4 +84,4 @@ const Movie = () => {
     );
 }
 
-export default Movie
+export default Tvshows;

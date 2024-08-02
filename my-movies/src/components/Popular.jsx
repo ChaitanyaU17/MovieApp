@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from '../../utils/axios';
+import axios from '../utils/axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Topnav from './Topnav';
-import Dropdown from './Dropdown';
-import Cards from './Cards';
+import Topnav from './partials/Topnav';
+import Dropdown from './partials/Dropdown';
+import Cards from './partials/Cards';
 import Loading from './Loading';
 
 const Popular = () => {
