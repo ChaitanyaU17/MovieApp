@@ -18,7 +18,7 @@ const People = () => {
     try {
       const response = await axios.get(`/person/${category}?page=${page}`);
       //setTrending(response?.data?.results);
-      console.log(response);
+      //console.log(response);
       if (response.data.results.length > 0) {
         setPeople((prevState) => [...prevState, ...response.data.results]);
         setPage(page + 1);
@@ -70,7 +70,7 @@ const People = () => {
         dataLength={people.length}
         loader={<h1>Loading...</h1>}
       >
-        <Cards data={people} title={category} />
+        <Cards data={people} title="people" />
       </InfiniteScroll>
     </div>
   ) : (

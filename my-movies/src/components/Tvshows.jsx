@@ -19,7 +19,7 @@ const Tvshows = () => {
       try {
         const response = await axios.get(`/tv/${category}?page=${page}`);
         //setTrending(response?.data?.results);
-        console.log(response.data);
+        //console.log(response.data);
         if (response.data.results.length > 0) {
           setTvshow((prevState) => [...prevState, ...response.data.results]);
           setPage(page + 1);
@@ -76,7 +76,7 @@ const Tvshows = () => {
           dataLength={tvshow.length}
           loader={<h1>Loading...</h1>}
         >
-          <Cards data={tvshow} title={category} />
+          <Cards data={tvshow} title='tv' />
         </InfiniteScroll>
       </div>
     ) : (

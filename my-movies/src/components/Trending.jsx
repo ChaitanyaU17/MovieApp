@@ -27,7 +27,7 @@ const Trending = () => {
         setHasMore(false);
       }
      
-      console.log(response);
+      //console.log(response);
     } catch (err) {
       console.log("Error: ", err);
     }
