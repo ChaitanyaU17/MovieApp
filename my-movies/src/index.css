@@ -29,7 +29,7 @@ select {
     outline: 0;
     box-shadow: none;
     border: 0 !important;
-    background: #27272a;
+    background: #36363d;
     background-image: none;
     flex: 1;
     padding: 0 0.5em;
@@ -57,7 +57,7 @@ select::-ms-expand {
     top: 0;
     right: 0;
     padding: 0 1em;
-    background: #27272a;
+    background: #626267;
     cursor: pointer;
     pointer-events: none;
     transition: 0.25s all ease;
