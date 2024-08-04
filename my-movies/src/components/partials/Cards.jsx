@@ -25,7 +25,7 @@ const Cards = ({ data, title }) => {
             alt=""
           />
 
-          <h1 className="text-xl text-zinc-400 mt-2 font-semibold">
+          <h1 className="text-sm text-zinc-300 mt-2 font-bold">
             {(c.title || c.name || c.original_name || c.original_title).length >
             20
               ? (

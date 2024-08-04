@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import HorizontalCards from './partials/HorizontalCards';
+import noimage from '/noimage.png';
 
 const Moviedetails = () => {
   const {pathname} = useLocation();
@@ -61,9 +62,13 @@ const Moviedetails = () => {
       <div className="w-full flex mb-[5%]">
         <img
           className="h-[50vh] w-[20%] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)]"
-          src={`https://image.tmdb.org/t/p/original/${
+          src={
             info.detail.backdrop_path || info.detail.poster_path
-          }`}
+              ? `https://image.tmdb.org/t/p/original/${
+                  info.detail.backdrop_path || info.detail.poster_path
+                }`
+              : noimage
+          }
           alt=""
         />
 
@@ -95,7 +100,9 @@ const Moviedetails = () => {
             <h1 className="font-medium text-base my-2 ">
               {info.detail.tagline}
             </h1>
-            <p className="font-normal text-opacity-60 text-base ">{info.detail.overview.slice(0, 300)}...</p>
+            <p className="font-normal text-opacity-60 text-base ">
+              {info.detail.overview.slice(0, 300)}...
+            </p>
             <h1 className="text-white text-opacity-70 my-2">
               <span className="text-white text-opacity-70 pr-4">Languages</span>{" "}
               {info.translations.join(" | ")}
@@ -119,12 +126,17 @@ const Moviedetails = () => {
         </div>
       </div>
 
-      
       {/* part 4 Recommendations */}
-      <h1 className="text-xl font-semibold text-zinc-300 italic">Recommended</h1>
-      <HorizontalCards data={info.recommendations.length > 0 ? info.recommendations : info.similar} />
+      <h1 className="text-xl font-semibold text-zinc-300 italic">
+        Recommended
+      </h1>
+      <HorizontalCards
+        data={
+          info.recommendations.length > 0 ? info.recommendations : info.similar
+        }
+      />
 
-        {/* part 3 available on platform */}
+      {/* part 3 available on platform */}
       <div className="w-[80%] flex flex-col gap-y-3 mt-8">
         {info.watchproviders && info.watchproviders.flatrate && (
           <div className="flex gap-x-10 items-center text-white">

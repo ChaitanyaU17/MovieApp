@@ -1,16 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { asyncloadpeople, removePeople } from "../store/actions/peopleActions";
 import { useEffect } from "react";
-import {
-  Link,
-  Outlet,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import Loading from "../components/Loading";
 import HorizontalCards from "./partials/HorizontalCards";
-import Dropdown from '../components/partials/Dropdown';
+import Dropdown from "../components/partials/Dropdown";
 
 const Peopledetails = () => {
   const { pathname } = useLocation();
@@ -18,6 +13,8 @@ const Peopledetails = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
+
+  const [category, setCategory] = useState("movie");
 
   console.log(info);
 
@@ -111,21 +108,24 @@ const Peopledetails = () => {
             </>
           )}
 
-          <h1 className="text-xl font-semibold text-zinc-300 mt-3">Place Of Birth</h1>
+          <h1 className="text-xl font-semibold text-zinc-300 mt-3">
+            Place Of Birth
+          </h1>
           <h1 className="text-xl font-semibold text-zinc-300">
             {info.detail.place_of_birth}
           </h1>
 
-          <h1 className="text-xl font-semibold text-zinc-300 mt-3">Also Known As</h1>
-          <h1 className="text-xl font-semibold text-zinc-300">
-            {info.detail.also_known_as.join(', ')}
+          <h1 className="text-xl font-semibold text-zinc-300 mt-3">
+            Also Known As
           </h1>
-
+          <h1 className="text-xl font-semibold text-zinc-300">
+            {info.detail.also_known_as.join(", ")}
+          </h1>
         </div>
 
         {/* part 3 right details and information */}
         <div className="w-[80%] ml-[4%]">
-        <h1 className="text-5xl font-black text-zinc-300">
+          <h1 className="text-5xl font-black text-zinc-300">
             {info.detail.name}
           </h1>
 
@@ -134,17 +134,49 @@ const Peopledetails = () => {
             {info.detail.biography}
           </p>
 
-          <h1 className="text-xl font-bold mt-5 text-zinc-300">Movies <i className="ri-arrow-right-wide-line"></i></h1>
+          <h1 className="text-xl font-bold mt-5 text-zinc-300">
+            Movies <i className="ri-arrow-right-wide-line"></i>
+          </h1>
           <HorizontalCards data={info.combinedcredits.cast} />
 
           <div className="w-full flex justify-between">
-          <h1 className="text-xl font-bold mt-5 text-zinc-300">Acting</h1>
+            <h1 className="text-xl font-bold mt-5 text-zinc-300">Acting</h1>
 
-          <Dropdown title="Category" options={['tv', 'movie']} func={(e) => setCategory(e.target.value)} />
+            <Dropdown
+              title="Category"
+              options={["tv", "movie"]}
+              func={(e) => setCategory(e.target.value)}
+            />
           </div>
 
-          <div className="w-full h-[50vh] overflow-x-hidden overflow-y-auto shadow-white shadow-2xl mt-7"></div>
+          {/* background image apply while editing CGMultiplex*/}
 
+          <div
+            className="list-disc text-zinc-300 w-full h-[50vh] overflow-x-hidden overflow-y-auto 
+          shadow-[rgba(255,255,255,.3)] shadow-xl my-7 border border-zinc-700 p-5"
+          >
+            {info[category + "credits"].cast.map((c, i) => (
+              <li
+                key={i}
+                className="hover:text-white duration-300 cursor-pointer p-2"
+              >
+                <Link to={`/${category}/details/${c.id}`}>
+                  <span className="font-bold text-xl">
+                    🎬{" "}
+                    {c.title || c.name || c.original_name || c.original_title}
+                  </span>
+                  <span className="block ml-6">
+                    {c.character && (
+                      <>
+                        <i className="ri-emoji-sticker-line text-[20px] mr-2"></i>{" "}
+                        {`Character Name: ${c.character}`} 
+                      </>
+                    )}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </div>
         </div>
       </div>
     </div>

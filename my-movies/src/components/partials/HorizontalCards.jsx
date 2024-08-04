@@ -11,7 +11,7 @@ const HorizontalCards = ({ data }) => {
           <Link
             to={`/${d.media_type}/details/${d.id}`}
             key={i}
-            className="min-w-[18%] w-[176px] h-[40vh] mr-5 mb-7"
+            className="min-w-[18%] w-[176px] h-[40vh] mr-5 mb-9"
           >
             <img
               className="w-full h-[100%] object-cover rounded-t-lg"

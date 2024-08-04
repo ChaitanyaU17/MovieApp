@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Loading from "../components/Loading";
 import HorizontalCards from "./partials/HorizontalCards";
+import noimage from '/noimage.png';
 
 const Tvdetails = () => {
   const { pathname } = useLocation();
@@ -67,9 +68,9 @@ const Tvdetails = () => {
       <div className="w-full flex mb-[5%]">
         <img
           className="h-[50vh] w-[20%] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)]"
-          src={`https://image.tmdb.org/t/p/original/${
+          src={ info.detail.backdrop_path || info.detail.poster_path ? `https://image.tmdb.org/t/p/original/${
             info.detail.backdrop_path || info.detail.poster_path
-          }`}
+          }` : noimage}
           alt=""
         />
 
@@ -98,7 +99,7 @@ const Tvdetails = () => {
               <h1>
                 {info.detail.number_of_seasons > 1 ? (
                   <span>
-                    {info.detail.number_of_seasons} Seasons
+                    {info.detail.number_of_seasons} Seasons{' '}
                     <span className="font-black ml-1">.</span>
                   </span>
                 ) : (
