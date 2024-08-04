@@ -13,6 +13,6 @@ export const peopleSlice = createSlice({
     },
 });
 
-export const { loadMovie, removeMovie } = peopleSlice.actions;
+export const { loadPeople, removePeople } = peopleSlice.actions;
 
 export default peopleSlice.reducer;

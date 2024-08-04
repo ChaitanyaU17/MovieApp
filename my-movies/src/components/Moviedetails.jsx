@@ -31,7 +31,7 @@ const Moviedetails = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="relative h-[150vh] w-screen px-[10%]"
+      className="relative h-[160vh] w-screen px-[10%]"
     >
       {/* part 1 navigation */}
       <nav className="h-[10vh] w-full text-zinc-100 flex items-center gap-10 text-xl">
@@ -125,7 +125,7 @@ const Moviedetails = () => {
       <HorizontalCards data={info.recommendations.length > 0 ? info.recommendations : info.similar} />
 
         {/* part 3 available on platform */}
-      <div className="w-[80%] flex flex-col gap-y-3 mt-[1%]">
+      <div className="w-[80%] flex flex-col gap-y-3 mt-8">
         {info.watchproviders && info.watchproviders.flatrate && (
           <div className="flex gap-x-10 items-center text-white">
             <i className="text-md font-semibold text-zinc-300 ">Available On</i>
