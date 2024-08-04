@@ -13,6 +13,6 @@ export const tvSlice = createSlice({
     },
 });
 
-export const { loadMovie, removeMovie } = tvSlice.actions;
+export const { loadTv, removeTv } = tvSlice.actions;
 
 export default tvSlice.reducer;

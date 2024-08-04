@@ -96,7 +96,7 @@ const Moviedetails = () => {
               {info.detail.tagline}
             </h1>
             <p className="font-normal text-opacity-60 text-base ">{info.detail.overview.slice(0, 300)}...</p>
-            <h1 className="text-white text-opacity-80 my-2">
+            <h1 className="text-white text-opacity-70 my-2">
               <span className="text-white text-opacity-70 pr-4">Languages</span>{" "}
               {info.translations.join(" | ")}
             </h1>
