@@ -56,7 +56,7 @@ const Trending = () => {
           {" "}
           <i
             onClick={() => navigate(-1)}
-            className="hover:text-[#6556cd] ri-arrow-left-fill"
+            className="hover:text-[#6556cd] ri-arrow-go-back-fill"
           ></i>{" "}
           Trending {" "}<small className='text-sm text-zinc-500'>({category})</small>
         </h1>

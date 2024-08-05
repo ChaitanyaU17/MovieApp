@@ -35,28 +35,33 @@ const Moviedetails = () => {
       className="relative h-[160vh] w-screen px-[10%]"
     >
       {/* part 1 navigation */}
-      <nav className="h-[10vh] w-full text-zinc-100 flex items-center gap-10 text-xl">
+      <nav className="h-[8vh] w-full text-zinc-100 flex items-center gap-10 text-xl">
         <Link
           onClick={() => navigate(-1)}
-          className="hover:text-[#6556cd] ri-arrow-left-fill"
+          className="hover:text-[#6556cd] ri-arrow-go-back-fill font-bold"
         ></Link>
 
-        <a target="_blank" href={info.detail.homepage}>
-          <i className="ri-external-link-fill"></i>
+        <a className="font-semibold text-zinc-300" target="_blank" href={info.detail.homepage}>
+          Official Movie Page <i className="ri-external-link-fill"></i>
         </a>
         <a
+        className="font-semibold text-zinc-300"
           target="_blank"
           href={`https://www.wikidata.org/wiki/${info.externalid.wikidata_id}`}
         >
-          <i className="ri-earth-fill"></i>
+          Wikipedia <i className="ri-earth-fill"></i>
         </a>
         <a
+        className="text-yellow-500 font-bold flex items-center"
           target="_blank"
           href={`https://www.imdb.com/title/${info.externalid.imdb_id}`}
         >
-          IMDB
+          IMDB<i className="ri-star-fill pl-1"></i>
         </a>
+        
       </nav>
+      <hr className="mb-5 border-none h-[2px] bg-white opacity-50 w-full " />
+      
 
       {/* part 2 poster and details */}
       <div className="w-full flex mb-[5%]">

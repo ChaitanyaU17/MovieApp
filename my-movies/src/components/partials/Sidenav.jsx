@@ -1,13 +1,17 @@
 // import React from "react";
 import {Link} from 'react-router-dom';
+import movielogo from '/movielogo.png';
 
 const Sidenav = () => {
 
   return (
     <div className="w-[20%] h-full border-r-2 border-zinc-400 p-4">
       <h1 className="text-2xl text-white font-bold ">
-        <i className="text-[#6556cd] ri-tv-fill"></i>
-        <span className="px-1">CGMultiplex</span>
+      <div className="flex items-center">
+      <img className="h-14 w-14 rounded object-cover" src={movielogo} alt="Movie Logo" />
+      <span className="px-1">CGMultiplex</span>
+      </div>
+
       </h1>
 
       <nav className="flex flex-col text-zinc-400 text-md gap-3 ">

@@ -32,7 +32,7 @@ const Peopledetails = () => {
       <nav className="h-[10vh] w-full text-zinc-100 flex items-center gap-x-5 text-xl">
         <Link
           onClick={() => navigate(-1)}
-          className="hover:text-[#6556cd] ri-arrow-left-fill"
+          className="hover:text-[#6556cd] ri-arrow-go-back-fill"
         ></Link>
       </nav>
 

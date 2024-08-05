@@ -30,7 +30,7 @@ const ContactUs = () => {
       <h1 className="text-4xl p-5">
         <i
           onClick={() => navigate(-1)}
-          className="hover:text-[#6556cd] ri-arrow-left-fill"
+          className="hover:text-[#6556cd] ri-arrow-go-back-fill"
         ></i>
         {"  "}CONTACT US!
       </h1>

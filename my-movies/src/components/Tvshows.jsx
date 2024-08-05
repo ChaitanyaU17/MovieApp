@@ -55,7 +55,7 @@ const Tvshows = () => {
             {" "}
             <i
               onClick={() => navigate(-1)}
-              className="hover:text-[#6556cd] ri-arrow-left-fill"
+              className="hover:text-[#6556cd] ri-arrow-go-back-fill"
             ></i>{"  "}
             Tv Shows {" "}<small className='text-sm text-zinc-500'>({category})</small>
           </h1>
