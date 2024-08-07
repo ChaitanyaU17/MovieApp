@@ -6,6 +6,7 @@ import { useState } from "react";
 import Loading from "../components/Loading";
 import HorizontalCards from "./partials/HorizontalCards";
 import Dropdown from "../components/partials/Dropdown";
+import peoplebackground from '/peopleback.jpg';
 
 const Peopledetails = () => {
   const { pathname } = useLocation();
@@ -32,7 +33,7 @@ const Peopledetails = () => {
       <nav className="h-[10vh] w-full text-zinc-100 flex items-center gap-x-5 text-xl">
         <Link
           onClick={() => navigate(-1)}
-          className="hover:text-[#6556cd] ri-arrow-go-back-fill"
+          className="hover:text-[#6556cd] ri-arrow-go-back-fill font-bold"
         ></Link>
       </nav>
 
@@ -44,10 +45,10 @@ const Peopledetails = () => {
             src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
             alt=""
           />
-          <hr className="mt-10 mb-5 border-none h-[2px] bg-zinc-500 w-[100%]" />
+          
 
           {/* social media handles */}
-          <div className="text-2xl text-white flex gap-x-10 ">
+          <div className="text-2xl text-white mt-3 flex gap-x-10 ">
             <a
               target="_blank"
               href={`https://www.wikidata.org/wiki/${info.externalid.wikidata_id}`}
@@ -75,50 +76,46 @@ const Peopledetails = () => {
             >
               <i className="ri-twitter-x-fill"></i>
             </a>
+            
           </div>
+          <hr className="mt-2 mb-5 border-none h-[2px] bg-zinc-600 w-[100%]" />
 
           {/* personal info */}
-          <h1 className="text-xl font-semibold my-5 text-zinc-300">
+          <h1 className="text-2xl font-bold my-5 text-zinc-300">
             Personal Info
           </h1>
 
-          <h1 className="text-xl font-semibold text-zinc-300">Know For</h1>
-          <h1 className="text-xl font-semibold text-zinc-300">
-            {info.detail.known_for_department}
+          {/* <h1 className="text-xl font-semibold text-zinc-300"></h1> */}
+          <h1 className="text-lg font-bold text-zinc-300 ">
+          Known For{' '} <span className="text-lg font-semibold pl-4">{info.detail.known_for_department}</span>
           </h1>
 
-          <h1 className="text-xl font-semibold text-zinc-300 mt-3">Gender</h1>
-          <h1 className="text-xl font-semibold text-zinc-300">
-            {info.detail.gender === 2 ? "male" : "female"}
+          <h1 className="text-lg font-bold text-zinc-300 mt-3">
+           Gender <span className="text-lg font-semibold pl-4">{info.detail.gender === 2 ? "Male" : "Female"}</span>
           </h1>
 
-          <h1 className="text-xl font-semibold text-zinc-300 mt-3">Birthday</h1>
-          <h1 className="text-xl font-semibold text-zinc-300">
-            {info.detail.birthday}
+          <h1 className="text-lg font-bold text-zinc-300 mt-3">
+           Birthday <span className="text-lg font-semibold pl-4">{info.detail.birthday}</span>
           </h1>
 
           {info.detail.deathday && (
             <>
-              <h1 className="text-xl font-semibold text-zinc-300 mt-3">
+              <h1 className="text-lg font-bold text-zinc-300 mt-3 ">
                 Deathday
-              </h1>
-              <h1 className="text-xl font-semibold text-zinc-300">
-                {info.detail.deathday}
+                <span className="text-lg font-semibold pl-4 py-2">{info.detail.deathday}</span>
               </h1>
             </>
           )}
 
-          <h1 className="text-xl font-semibold text-zinc-300 mt-3">
-            Place Of Birth
-          </h1>
-          <h1 className="text-xl font-semibold text-zinc-300">
-            {info.detail.place_of_birth}
-          </h1>
+          <h1 className="text-lg font-bold text-zinc-300 mt-3">
+            Place Of Birth</h1>
+            <span className="text-lg text-zinc-300 font-semibold py-2">{info.detail.place_of_birth}</span>
+          
 
-          <h1 className="text-xl font-semibold text-zinc-300 mt-3">
+          <h1 className="text-lg font-bold text-zinc-300 mt-3">
             Also Known As
           </h1>
-          <h1 className="text-xl font-semibold text-zinc-300">
+          <h1 className="text-lg font-semibold text-zinc-300 py-2">
             {info.detail.also_known_as.join(", ")}
           </h1>
         </div>
@@ -152,13 +149,21 @@ const Peopledetails = () => {
           {/* background image apply while editing CGMultiplex*/}
 
           <div
-            className="list-disc text-zinc-300 w-full h-[50vh] overflow-x-hidden overflow-y-auto 
+          style={{
+            backgroundImage: `linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.5), rgba(0,0,0,.8)), 
+          url(${peoplebackground})`,
+            backgroundPosition: "10% 20%",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+
+            className="list-disc text-white w-full h-[50vh] overflow-x-hidden overflow-y-auto 
           shadow-[rgba(255,255,255,.3)] shadow-xl my-7 border border-zinc-700 p-5"
           >
             {info[category + "credits"].cast.map((c, i) => (
               <li
                 key={i}
-                className="hover:text-white duration-300 cursor-pointer p-2"
+                className="hover:text-zinc-300 duration-300 cursor-pointer p-2"
               >
                 <Link to={`/${category}/details/${c.id}`}>
                   <span className="font-bold text-xl">

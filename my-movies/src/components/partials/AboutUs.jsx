@@ -1,4 +1,4 @@
-import about from "/about.jpg";
+import aboutus from "/aboutus.jpg";
 import movielogo from "/movielogo.png";
 
 const AboutUs = () => {
@@ -6,7 +6,7 @@ const AboutUs = () => {
     <div
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.5), rgba(0,0,0,.8)), 
-      url(${about})`,
+      url(${aboutus})`,
         backgroundPosition: "10% 20%",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -14,7 +14,7 @@ const AboutUs = () => {
       className="relative h-screen w-screen px-[10%] text-white"
     >
       <h1 className="text-center pt-10 font-black text-5xl">
-        ABOUT CGMULTIPLEX
+        ABOUT <span className="text-[#6556cd] text-6xl">CG</span>MULTIPLEX
       </h1>
 
       <div className="text-center text-base pt-5">
@@ -64,12 +64,12 @@ const AboutUs = () => {
             alt="Movie Logo"
           />
           <h1 className="text-xl p-4 font-bold">
-            The CGMultiplex Movies Team
+            The <span className="text-[#6556cd] text-3xl">CG</span>Multiplex Movies Team
           </h1>
         </div>
       </div>
 
-      <footer className="text-center pt-16">
+      <footer className="text-center pt-14">
         <p>&copy; 2024 CGMultiplex Movies. All rights reserved.</p>
       </footer>
     </div>

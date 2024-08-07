@@ -9,7 +9,7 @@ const Sidenav = () => {
       <h1 className="text-2xl text-white font-bold ">
       <div className="flex items-center">
       <img className="h-14 w-14 rounded object-cover" src={movielogo} alt="Movie Logo" />
-      <span className="px-1">CGMultiplex</span>
+      <span className="px-1"><span className="text-[#6556cd] text-3xl">CG</span>Multiplex</span>
       </div>
 
       </h1>

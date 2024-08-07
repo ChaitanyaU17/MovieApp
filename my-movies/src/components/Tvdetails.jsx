@@ -41,32 +41,33 @@ const Tvdetails = () => {
       className="relative h-[220vh] w-screen px-[10%]"
     >
       {/* part 1 navigation */}
-      <nav className="h-[8vh] w-full text-zinc-100 flex items-center gap-10 text-xl">
+      <nav className="h-[8vh] w-full text-zinc-100 flex items-center pb-4 gap-10 text-lg">
         <Link
           onClick={() => navigate(-1)}
           className="hover:text-[#6556cd] ri-arrow-go-back-fill font-bold"
         ></Link>
 
-        <a className="font-semibold text-zinc-300" target="_blank" href={info.detail.homepage}>
+        <a className="font-semibold" target="_blank" href={info.detail.homepage}>
           Official TV Page <i className="ri-external-link-fill"></i>
         </a>
         <a
-        className="font-semibold text-zinc-300"
+        className="font-semibold"
           target="_blank"
           href={`https://www.wikidata.org/wiki/${info.externalid.wikidata_id}`}
         >
           Wikipedia <i className="ri-earth-fill"></i>
         </a>
         <a
-        className="text-yellow-500 font-bold flex items-center"
+        className="flex items-center"
           target="_blank"
           href={`https://www.imdb.com/title/${info.externalid.imdb_id}`}
         >
-          IMDB<i className="ri-star-fill pl-1"></i>
+          {/* IMDB<i className="ri-star-fill pl-1"></i> */}
+          <button className="bg-yellow-400 px-2 mt-1 font-black text-xl text-black rounded">IMDb</button>
         </a>
         
       </nav>
-      <hr className="mb-7 border-none h-[2px] bg-white opacity-40 w-full " />
+      {/* <hr className="mb-5 border-none h-[2px] bg-white opacity-50 w-full " /> */}
 
       {/* part 2 poster and details */}
       <div className="w-full flex mb-[5%]">
