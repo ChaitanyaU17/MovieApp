@@ -25,10 +25,11 @@ const Topnav = () => {
     <div className="w-[100%] h-[10vh] relative flex justify-start items-center pl-[15%] ">
       <i className="text-zinc-400 text-2xl ri-search-line"></i>
       <input
-        className="w-[50%] mx-10 p-2 text-md outline-none border-none bg-transparent text-zinc-200"
+        className="w-[50%] mx-4 p-2 text-md outline-none border-b-[0.5px]  bg-transparent focus:border-[#6556cd] text-zinc-200"
         type="text"
         placeholder="search any movie"
         onChange={(e) => setQuery(e.target.value)}
+        
         value={query}
       />
       {query.length > 0 && (
@@ -39,12 +40,12 @@ const Topnav = () => {
       )}
 
       {searches.length > 0 && (
-        <div className="z-[100] absolute top-[100%] w-[50%] max-h-[50vh] left-[20%] bg-zinc-200 overflow-auto rounded ">
+        <div className="z-[100] absolute top-[100%] w-[45%] max-h-[50vh] left-[18%] bg-[#1f1E24] overflow-auto rounded ">
           {searches.map((s, i) => (
             <Link
               to={`/${s.media_type}/details/${s.id}`}
               key={i}
-              className="hover:text-zinc-900 hover:underline hover:bg-zinc-300 duration-300 font-semibold text-zinc-600 w-full p-5 flex justify-start items-center border-b-2 border-zinc-100"
+              className="hover:text-zinc-200 hover:underline hover:bg-zinc-700 duration-300 font-semibold text-white w-full p-5 flex justify-start items-center border-b-1 border-zinc-100"
             >
               <img
                 className="w-[10vh] h-[10vh] object-cover rounded mr-5 shadow-lg"

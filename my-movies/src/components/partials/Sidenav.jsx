@@ -8,7 +8,7 @@ const Sidenav = () => {
     <div className="w-[20%] h-full border-r-2 border-zinc-400 p-4">
       <h1 className="text-2xl text-white font-bold ">
       <div className="flex items-center">
-      <img className="h-14 w-14 rounded object-cover" src={movielogo} alt="Movie Logo" />
+      <img className="h-12 w-12 rounded object-cover" src={movielogo} alt="Movie Logo" />
       <span className="px-1"><span className="text-[#6556cd] text-3xl">CG</span>Multiplex</span>
       </div>
 
