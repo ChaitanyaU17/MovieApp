@@ -40,7 +40,7 @@ const Topnav = () => {
       )}
 
       {searches.length > 0 && (
-        <div className="z-[100] absolute top-[100%] w-[45%] max-h-[50vh] left-[18%] bg-[#1f1E24] overflow-auto rounded ">
+        <div className="z-[100] absolute top-[100%] w-[45%] max-h-[50vh] left-[18%] bg-[#1f1E24] bg-opacity-90 overflow-auto rounded ">
           {searches.map((s, i) => (
             <Link
               to={`/${s.media_type}/details/${s.id}`}

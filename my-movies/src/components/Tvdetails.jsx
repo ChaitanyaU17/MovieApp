@@ -136,10 +136,10 @@ const Tvdetails = () => {
             </div>
 
             <Link
-              className="mt-3 w-[23%] rounded-lg text-xl font-bold p-2 bg-[#6556cd] bg-opacity-40 hover:bg-opacity-55"
+              className="mt-3 w-48 rounded-lg text-xl font-bold p-3 bg-zinc-400 bg-opacity-40 hover:bg-opacity-55"
               to={`${pathname}/trailer`}
             >
-              <i className="ri-play-large-fill mr-2"></i>
+              <i className="ri-play-large-fill mr-2 "></i>
               Watch Trailer
             </Link>
           </div>

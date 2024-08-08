@@ -53,7 +53,7 @@ const Home = () => {
         <Topnav />
         <Header data={wallpaper} />
 
-        <div className="my-5 flex justify-between p-5">
+        <div className="my-2 flex justify-between p-4">
           <h1 className="font-semibold text-2xl text-zinc-400">Trending</h1>
 
           {/* display the api results each category */}

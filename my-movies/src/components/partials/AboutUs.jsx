@@ -1,7 +1,9 @@
 import aboutus from "/aboutus.jpg";
 import movielogo from "/movielogo.png";
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -13,9 +15,16 @@ const AboutUs = () => {
       }}
       className="relative h-screen w-screen px-[10%] text-white"
     >
-      <h1 className="text-center pt-10 font-black text-5xl">
-        ABOUT <span className="text-[#6556cd] text-6xl">CG</span>MULTIPLEX
-      </h1>
+      <i
+          onClick={() => navigate(-1)}
+          className="hover:text-[#6556cd]  text-2xl ri-arrow-go-back-fill"
+        ></i>
+      <div className="flex justify-center items-center">
+        
+        <h1 className="text-center  font-black text-5xl ">
+          ABOUT <span className="text-[#6556cd] text-6xl">CG</span>MULTIPLEX
+        </h1>
+      </div>
 
       <div className="text-center text-base pt-5">
         <h2 className="text-lg py-3">
@@ -64,7 +73,8 @@ const AboutUs = () => {
             alt="Movie Logo"
           />
           <h1 className="text-xl p-4 font-bold">
-            The <span className="text-[#6556cd] text-3xl">CG</span>Multiplex Movies Team
+            The <span className="text-[#6556cd] text-3xl">CG</span>Multiplex
+            Movies Team
           </h1>
         </div>
       </div>
