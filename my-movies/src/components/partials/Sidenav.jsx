@@ -9,6 +9,7 @@ const Sidenav = () => {
       <h1 className="text-2xl text-white font-bold ">
       <div className="flex items-center">
       <img className="h-12 w-12 rounded object-cover" src={movielogo} alt="Movie Logo" />
+      {/* make responsive */}
       <span className="px-1"><span className="text-[#6556cd] text-3xl">CG</span>Multiplex</span>
       </div>
 
