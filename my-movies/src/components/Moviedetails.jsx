@@ -27,47 +27,45 @@ const Moviedetails = () => {
     <div
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.5), rgba(0,0,0,.8)), 
-      url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path})`,
+        url(https://image.tmdb.org/t/p/original/${info.detail.backdrop_path})`,
         backgroundPosition: "10% 20%",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="relative h-[160vh] w-screen px-[10%]"
+      className="relative min-h-[170vh] w-full px-4 md:px-[10%]"
     >
       {/* part 1 navigation */}
-      <nav className="h-[8vh] w-full text-zinc-100 flex items-center gap-10 pb-4 text-lg">
+      <nav className="h-[8vh] w-full text-zinc-100 flex items-center pb-4 gap-5 md:gap-10 text-sm md:text-lg">
         <Link
           onClick={() => navigate(-1)}
           className="hover:text-[#6556cd] ri-arrow-go-back-fill font-bold"
         ></Link>
-
+  
         <a className="font-semibold" target="_blank" href={info.detail.homepage}>
           Official Movie Page <i className="ri-external-link-fill"></i>
         </a>
         <a
-        className="font-semibold"
+          className="font-semibold"
           target="_blank"
           href={`https://www.wikidata.org/wiki/${info.externalid.wikidata_id}`}
         >
           Wikipedia <i className="ri-earth-fill"></i>
         </a>
         <a
-        className="flex items-center"
+          className="flex items-center"
           target="_blank"
           href={`https://www.imdb.com/title/${info.externalid.imdb_id}`}
         >
-          {/* IMDB<i className="ri-star-fill pl-1"></i> */}
-          <button className="bg-yellow-400 px-2 mt-1 font-black text-xl text-black rounded">IMDb</button>
+          <button className="bg-yellow-400 px-2 mt-1 font-black text-sm md:text-xl text-black rounded">
+            IMDb
+          </button>
         </a>
-        
       </nav>
-      {/* <hr className="mb-5 border-none h-[2px] bg-white opacity-50 w-full " /> */}
-      
-
+  
       {/* part 2 poster and details */}
-      <div className="w-full flex mb-[5%]">
+      <div className="w-full flex flex-col md:flex-row mb-[5%]">
         <img
-          className="h-[50vh] w-[20%] object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)]"
+          className="h-[30vh] md:h-[50vh] w-full md:w-[20%] object-cover shadow-lg"
           src={
             info.detail.backdrop_path || info.detail.poster_path
               ? `https://image.tmdb.org/t/p/original/${
@@ -77,50 +75,45 @@ const Moviedetails = () => {
           }
           alt=""
         />
-
+  
         {/* Movie title */}
-        <div className="content text-white ml-[5%]">
-          <h1 className="text-5xl font-black">
+        <div className="content text-white mt-4 md:mt-0 md:ml-[5%]">
+          <h1 className="text-3xl md:text-5xl font-black">
             {info.detail.title ||
               info.detail.name ||
               info.detail.original_name ||
               info.detail.original_title}
-
-            {/* <small className="text-zinc-200">
-              {" "}
-              {info.detail.release_date.split("-")[0]}
-            </small> */}
           </h1>
-
+  
           {/* movie information */}
-          <div className="flex flex-col text-white font-bold gap-x-3 mt-2">
-            <div className="flex items-center gap-x-3 text-zinc-200">
-              <h1>{info.detail.release_date.split("-")[0]} .</h1>
-              <h1>{info.detail.genres.map((g) => g.name).join(" | ")}</h1>
+          <div className="flex flex-col text-lg text-white font-bold gap-x-3 mt-4">
+            <div className="flex flex-wrap items-center gap-x-2 text-zinc-200">
+              <h1>{info.detail.release_date.split("-")[0]}<pre className="font-black text-xl inline"> .</pre></h1>
+              <h1>{info.detail.genres.map((g) => g.name).join(" | ")}<pre className="font-black text-xl inline"> .</pre></h1>
               <h1>
                 {Math.floor(info.detail.runtime / 60)}h{" "}
                 {info.detail.runtime % 60}m
               </h1>
             </div>
-
-            <h1 className="font-medium text-base my-2 ">
+  
+            <h1 className="font-medium text-base my-1">
               {info.detail.tagline}
             </h1>
-            <p className="font-normal text-opacity-60 text-base ">
+            <p className="font-normal text-opacity-60 text-base">
               {info.detail.overview.slice(0, 300)}...
             </p>
-            <h1 className="text-white text-opacity-70 my-2">
-              <span className="text-white text-opacity-70 pr-4">Languages</span>{" "}
+            <h1 className="text-white text-opacity-80 my-2 text-base">
+              <span className="text-white text-opacity-80 pr-4">Languages</span>{" "}
               {info.translations.join(" | ")}
             </h1>
-
+  
             <div className="flex items-center gap-x-3 mt-2">
               <h1>IMDB</h1>
-              <span className="w-[6vh] h-[6vh] text-md font-semibold bg-yellow-600 text-white rounded-full flex justify-center items-center">
+              <span className="w-[5vh] h-[5vh] text-md font-semibold bg-yellow-600 text-white rounded-full flex justify-center items-center">
                 {(info.detail.vote_average * 10).toFixed()} <sup>%</sup>
               </span>
             </div>
-
+  
             <Link
               className="mt-3 w-48 rounded-lg text-xl font-bold p-3 bg-zinc-400 bg-opacity-40 hover:bg-opacity-55"
               to={`${pathname}/trailer`}
@@ -131,9 +124,9 @@ const Moviedetails = () => {
           </div>
         </div>
       </div>
-
+  
       {/* part 4 Recommendations */}
-      <h1 className="text-xl font-semibold text-zinc-300 italic">
+      <h1 className="text-lg md:text-xl font-semibold text-zinc-300 italic">
         Recommended
       </h1>
       <HorizontalCards
@@ -141,12 +134,12 @@ const Moviedetails = () => {
           info.recommendations.length > 0 ? info.recommendations : info.similar
         }
       />
-
+  
       {/* part 3 available on platform */}
-      <div className="w-[80%] flex flex-col gap-y-3 mt-8">
+      <div className="w-full md:w-[80%] flex flex-col gap-y-3 mt-[2%]">
         {info.watchproviders && info.watchproviders.flatrate && (
-          <div className="flex gap-x-10 items-center text-white">
-            <i className="text-md font-semibold text-zinc-300 ">Available On</i>
+          <div className="flex flex-wrap gap-x-5 md:gap-x-10 items-center text-white mt-4">
+            <i className="text-md font-semibold text-zinc-300">Available On</i>
             {info.watchproviders.flatrate.map((f, i) => (
               <img
                 key={i}
@@ -158,9 +151,9 @@ const Moviedetails = () => {
             ))}
           </div>
         )}
-
+  
         {info.watchproviders && info.watchproviders.rent && (
-          <div className="flex gap-x-10 items-center text-white">
+          <div className="flex flex-wrap gap-x-5 md:gap-x-10 items-center text-white">
             <i className="text-md font-semibold text-zinc-300 ">
               Available On Rent
             </i>
@@ -175,9 +168,9 @@ const Moviedetails = () => {
             ))}
           </div>
         )}
-
+  
         {info.watchproviders && info.watchproviders.buy && (
-          <div className="flex gap-x-10 items-center text-white">
+          <div className="flex flex-wrap gap-x-5 md:gap-x-10 items-center text-white">
             <i className="text-md font-semibold text-zinc-300 ">
               Available To Buy
             </i>
@@ -193,7 +186,7 @@ const Moviedetails = () => {
           </div>
         )}
       </div>
-
+  
       <Outlet />
     </div>
   ) : (
