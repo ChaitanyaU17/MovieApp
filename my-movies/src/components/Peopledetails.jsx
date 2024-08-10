@@ -41,13 +41,14 @@ const Peopledetails = () => {
         {/* part 2 left poster and details */}
         <div className="w-full md:w-[30%] mb-4 md:mb-0">
           <img
-            className="h-[50vh] md:h-[50vh] w-full object-contain shadow-lg"
+            className="h-[50vh] md:h-[50vh] object-contain shadow-lg"
             src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
             alt=""
+            
           />
 
           {/* social media handles */}
-          <div className="text-2xl text-white mt-3 flex flex-wrap gap-4 justify-center md:justify-start">
+          <div className="text-2xl text-white mt-3 flex flex-wrap gap-8 justify-center md:justify-start">
             <a
               target="_blank"
               href={`https://www.wikidata.org/wiki/${info.externalid.wikidata_id}`}
