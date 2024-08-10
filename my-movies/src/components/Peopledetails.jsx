@@ -28,27 +28,26 @@ const Peopledetails = () => {
   }, [id]);
 
   return info ? (
-    <div className="px-[5%] h-screen w-screen overflow-y-scroll">
+    <div className="px-4 md:px-[5%] h-screen w-screen overflow-y-scroll">
       {/* part 1 navigation */}
-      <nav className="h-[10vh] w-full text-zinc-100 flex items-center gap-x-5 text-xl">
+      <nav className="h-[10vh] w-full text-zinc-100 flex items-center gap-x-5 text-lg md:text-xl">
         <Link
           onClick={() => navigate(-1)}
           className="hover:text-[#6556cd] ri-arrow-go-back-fill font-bold"
         ></Link>
       </nav>
 
-      <div className="w-full flex ">
+      <div className="flex flex-col md:flex-row">
         {/* part 2 left poster and details */}
-        <div className="w-[20%]">
+        <div className="w-full md:w-[30%] mb-4 md:mb-0">
           <img
-            className="h-[50vh] w-full object-cover shadow-[8px_17px_38px_2px_rgba(0,0,0,.5)]"
+            className="h-[40vh] md:h-[50vh] w-full object-cover shadow-lg"
             src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
             alt=""
           />
-          
 
           {/* social media handles */}
-          <div className="text-2xl text-white mt-3 flex gap-x-10 ">
+          <div className="text-2xl text-white mt-3 flex flex-wrap gap-4 justify-center md:justify-start">
             <a
               target="_blank"
               href={`https://www.wikidata.org/wiki/${info.externalid.wikidata_id}`}
@@ -76,68 +75,64 @@ const Peopledetails = () => {
             >
               <i className="ri-twitter-x-fill"></i>
             </a>
-            
           </div>
-          <hr className="mt-2 mb-5 border-none h-[2px] bg-zinc-600 w-[100%]" />
+
+          <hr className="mt-2 mb-5 border-none h-[2px] bg-zinc-600 w-full" />
 
           {/* personal info */}
-          <h1 className="text-2xl font-bold my-5 text-zinc-300">
-            Personal Info
-          </h1>
+          <div className="text-white">
+            <h1 className="text-2xl font-bold my-5">Personal Info</h1>
 
-          {/* <h1 className="text-xl font-semibold text-zinc-300"></h1> */}
-          <h1 className="text-lg font-bold text-zinc-300 ">
-          Known For{' '} <span className="text-lg font-semibold pl-4">{info.detail.known_for_department}</span>
-          </h1>
+            <h1 className="text-lg font-bold mt-2">
+              Known For{' '}
+              <span className="font-semibold">{info.detail.known_for_department}</span>
+            </h1>
 
-          <h1 className="text-lg font-bold text-zinc-300 mt-3">
-           Gender <span className="text-lg font-semibold pl-4">{info.detail.gender === 2 ? "Male" : "Female"}</span>
-          </h1>
+            <h1 className="text-lg font-bold mt-2">
+              Gender <span className="font-semibold">{info.detail.gender === 2 ? "Male" : "Female"}</span>
+            </h1>
 
-          <h1 className="text-lg font-bold text-zinc-300 mt-3">
-           Birthday <span className="text-lg font-semibold pl-4">{info.detail.birthday}</span>
-          </h1>
+            <h1 className="text-lg font-bold mt-2">
+              Birthday <span className="font-semibold">{info.detail.birthday}</span>
+            </h1>
 
-          {info.detail.deathday && (
-            <>
-              <h1 className="text-lg font-bold text-zinc-300 mt-3 ">
-                Deathday
-                <span className="text-lg font-semibold pl-4 py-2">{info.detail.deathday}</span>
+            {info.detail.deathday && (
+              <h1 className="text-lg font-bold mt-2">
+                Deathday <span className="font-semibold">{info.detail.deathday}</span>
               </h1>
-            </>
-          )}
+            )}
 
-          <h1 className="text-lg font-bold text-zinc-300 mt-3">
-            Place Of Birth</h1>
-            <span className="text-lg text-zinc-300 font-semibold py-2">{info.detail.place_of_birth}</span>
-          
+            <h1 className="text-lg font-bold mt-2">
+              Place Of Birth <span className="font-semibold">{info.detail.place_of_birth}</span>
+            </h1>
 
-          <h1 className="text-lg font-bold text-zinc-300 mt-3">
-            Also Known As
-          </h1>
-          <h1 className="text-lg font-semibold text-zinc-300 py-2">
-            {info.detail.also_known_as.join(", ")}
-          </h1>
+            <h1 className="text-lg font-bold mt-2">
+              Also Known As
+            </h1>
+            <h1 className="text-lg font-semibold">
+              {info.detail.also_known_as.join(", ")}
+            </h1>
+          </div>
         </div>
 
         {/* part 3 right details and information */}
-        <div className="w-[80%] ml-[4%]">
-          <h1 className="text-5xl font-black text-zinc-300">
+        <div className="w-full md:w-[70%] ml-0 md:ml-4">
+          <h1 className="text-3xl md:text-5xl font-black text-zinc-300">
             {info.detail.name}
           </h1>
 
-          <h1 className="text-xl font-bold mt-5 text-zinc-300">Biography</h1>
-          <p className="text-lg font-normal text-zinc-300 my-3">
+          <h1 className="text-xl md:text-2xl font-bold mt-5 text-zinc-300">Biography</h1>
+          <p className="text-lg md:text-xl font-normal text-zinc-300 my-3">
             {info.detail.biography}
           </p>
 
-          <h1 className="text-xl font-bold mt-5 text-zinc-300">
+          <h1 className="text-xl md:text-2xl font-bold mt-5 text-zinc-300">
             Movies <i className="ri-arrow-right-wide-line"></i>
           </h1>
           <HorizontalCards data={info.combinedcredits.cast} />
 
-          <div className="w-full flex justify-between">
-            <h1 className="text-xl font-bold mt-5 text-zinc-300">Acting</h1>
+          <div className="w-full flex flex-col md:flex-row justify-between mt-5">
+            <h1 className="text-xl md:text-2xl font-bold text-zinc-300">Acting</h1>
 
             <Dropdown
               title="Category"
@@ -146,19 +141,16 @@ const Peopledetails = () => {
             />
           </div>
 
-          {/* background image apply while editing CGMultiplex*/}
-
+          {/* Background image container */}
           <div
-          style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.5), rgba(0,0,0,.8)), 
-          url(${peoplebackground})`,
-            backgroundPosition: "10% 20%",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-          }}
-
-            className="list-disc text-white w-full h-[50vh] overflow-x-hidden overflow-y-auto 
-          shadow-[rgba(255,255,255,.3)] shadow-xl my-7 border border-zinc-700 p-5"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.5), rgba(0,0,0,.8)), 
+                url(${peoplebackground})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+            className="text-white w-full h-[50vh] mt-7 p-5 border border-zinc-700 shadow-xl overflow-y-auto"
           >
             {info[category + "credits"].cast.map((c, i) => (
               <li
