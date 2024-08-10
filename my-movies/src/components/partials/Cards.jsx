@@ -6,11 +6,11 @@ import noimage from "/noimage.png";
 const Cards = ({ data, title }) => {
   //console.log(data);
   return (
-    <div className="flex flex-wrap w-full h-full pt-5 px-[2%] bg-[#1f1E24] ">
+    <div className="flex flex-wrap items-center justify-center w-full h-full pt-5 px-[2%] bg-[#1f1E24] ">
       {data.map((c, i) => (
         <Link
           to={`/${c.media_type || title}/details/${c.id}`}
-          className="relative w-[25vh] mr-[2%] mb-[5%]"
+          className="relative w-[25vh]  mr-[5%] mb-[5%]"
           key={i}
         >
           <img

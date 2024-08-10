@@ -5,15 +5,15 @@ import movielogo from '/movielogo.png';
 const Sidenav = () => {
 
   return (
-    <div className="w-[20%] h-full border-r-2 border-zinc-400 p-4">
-      <h1 className="text-2xl text-white font-bold ">
-      <div className="flex items-center">
-      <img className="h-12 w-12 rounded object-cover" src={movielogo} alt="Movie Logo" />
-      {/* make responsive */}
-      <span className="px-1"><span className="text-[#6556cd] text-3xl">CG</span>Multiplex</span>
+    <div className="w-full sm:w-[20%] h-full border-r-2 border-zinc-400 p-4">
+    <h1 className="text-2xl text-white font-bold">
+      <div className="flex flex-col sm:flex-row items-center">
+        <img className="h-12 w-12 rounded object-cover" src={movielogo} alt="Movie Logo" />
+        <span className="px-1">
+          <span className="text-[#6556cd] text-3xl">CG</span>Multiplex
+        </span>
       </div>
-
-      </h1>
+    </h1>
 
       <nav className="flex flex-col text-zinc-400 text-md gap-3 ">
         <h1 className=" font-bold text-xl mt-6 mb-2">Explore</h1>
