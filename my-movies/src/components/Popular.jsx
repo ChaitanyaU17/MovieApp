@@ -49,9 +49,9 @@ const Popular = () => {
   }, [category]);
 
   return popular.length > 0 ? (
-    <div className="h-screen w-screen">
-      <div className="w-full flex items-center justify-between px-[5%]">
-        <h1 className="text-xl font-semibold text-zinc-400">
+    <div className="min-h-screen w-full">
+      <div className="w-full flex flex-col md:flex-row items-center justify-between px-4 md:px-[5%] py-4">
+        <h1 className="text-lg md:text-xl font-semibold text-zinc-400 mb-4 md:mb-0">
           {" "}
           <i
             onClick={() => navigate(-1)}
@@ -60,7 +60,7 @@ const Popular = () => {
           Popular {" "}<small className='text-sm text-zinc-500'>({category})</small>
         </h1>
 
-        <div className="flex items-center w-[80%]">
+        <div className="flex items-center w-full md:w-[80%]">
           <Topnav />
           <Dropdown
             title="Category"
