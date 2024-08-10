@@ -41,7 +41,7 @@ const Peopledetails = () => {
         {/* part 2 left poster and details */}
         <div className="w-full md:w-[30%] mb-4 md:mb-0">
           <img
-            className="h-[40vh] md:h-[50vh] w-full object-cover shadow-lg"
+            className="h-[50vh] md:h-[50vh] w-full object-contain shadow-lg"
             src={`https://image.tmdb.org/t/p/original/${info.detail.profile_path}`}
             alt=""
           />
