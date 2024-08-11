@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 const HorizontalCards = ({ data }) => {
   return (
-    <div className="w-[100%] flex overflow-y-hidden mb-5 p-5">
+    <div className="flex overflow-x-scroll  mb-5 p-5 w-[100%] overflow-y-hidden">
       {data.length > 0 ? (
         data.map((d, i) => (
           <Link
             to={`/${d.media_type}/details/${d.id}`}
             key={i}
-            className="min-w-[18%] w-[176px] h-[40vh] mr-5 mb-9"
+            className="min-w-[40%] sm:min-w-[30%] lg:min-w-[18%] sm:w-[120px] lg:w-[176px] w-[176px] h-[40vh] lg:h-[40vh] mr-5 mb-9"
           >
             <img
               className="w-full h-[100%] object-cover rounded-t-lg"

@@ -49,11 +49,11 @@ const Home = () => {
   return wallpaper && trending ? (
     <>
       <Sidenav />
-      <div className="w-[80%] h-full overflow-auto overflow-x-hidden">
-        <Topnav />
-        <Header data={wallpaper} />
-
-        <div className="my-2 flex justify-between p-4">
+      <div className="flex flex-col lg:flex-row h-full overflow-auto overflow-x-hidden">
+        <div className="w-full lg:w-[85%] lg:ml-[250px]">
+          <Topnav />
+          <Header data={wallpaper} />
+          <div className="my-2 flex justify-start gap-x-16 pl-4 pt-4">
           <h1 className="font-semibold text-2xl text-zinc-400">Trending</h1>
 
           {/* display the api results each category */}
@@ -66,6 +66,7 @@ const Home = () => {
         </div>
 
         <HorizontalCards data={trending} />
+      </div>
       </div>
     </>
   ) : (
