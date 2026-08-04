@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
-/* eslint-disable react/prop-types */
 const Header = ({ data }) => {
-  //console.log(data);
   return (
     <div
       style={{
@@ -14,13 +12,13 @@ const Header = ({ data }) => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="h-[50vh] lg:h-[70vh] flex flex-col justify-end items-start p-[5%] lg:p-[2%]"
+      className="h-[50vh] lg:h-[70vh] flex flex-col justify-end items-start p-4 sm:p-6 md:p-[5%] lg:p-[2%]"
     >
-      <h1 className="w-[70%] text-3xl font-black text-white">
+      <h1 className="w-full md:w-[70%] text-2xl sm:text-3xl font-black text-white">
         {data.title || data.name || data.original_name || data.original_title}
       </h1>
 
-      <p className="w-[70%] text-sm text-white mt-3 mb-3">
+      <p className="w-full md:w-[70%] text-xs sm:text-sm text-white mt-3 mb-3">
         {data.overview?.slice(0, 200)}.
         <Link
           to={`/${data.media_type}/details/${data.id}`}
@@ -30,7 +28,7 @@ const Header = ({ data }) => {
         </Link>
       </p>
 
-      <p className="text-white">
+      <p className="text-white text-xs sm:text-sm">
         <i className="text-yellow-500 ri-megaphone-fill"></i>{" "}
         {data.release_date || "No Information"}
         <i className="ml-5 text-yellow-500 ri-album-fill"></i>{" "}
@@ -39,7 +37,7 @@ const Header = ({ data }) => {
 
       <Link
         to={`/${data.media_type}/details/${data.id}/trailer`}
-        className="p-2 bg-[#6556cd] rounded text-white mt-3"
+        className="p-2 sm:p-3 bg-[#6556cd] rounded text-white mt-3 text-sm sm:text-base"
       >
         Watch Trailer
       </Link>

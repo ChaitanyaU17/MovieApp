@@ -35,10 +35,10 @@ const Moviedetails = () => {
       className="relative min-h-[170vh] w-full px-4 md:px-[10%]"
     >
       {/* part 1 navigation */}
-      <nav className="h-[8vh] w-full text-zinc-100 flex items-center pb-4 gap-5 md:gap-10 text-sm md:text-lg">
+      <nav className="h-[8vh] w-full text-zinc-100 flex items-center pb-4 gap-3 sm:gap-5 md:gap-8 lg:gap-10 text-xs sm:text-sm md:text-base lg:text-lg">
         <Link
           onClick={() => navigate(-1)}
-          className="hover:text-[#6556cd] ri-arrow-go-back-fill font-bold"
+          className="hover:text-[#6556cd] ri-arrow-go-back-fill font-bold text-lg sm:text-xl md:text-2xl"
         ></Link>
   
         <a className="font-semibold" target="_blank" href={info.detail.homepage}>
@@ -56,7 +56,7 @@ const Moviedetails = () => {
           target="_blank"
           href={`https://www.imdb.com/title/${info.externalid.imdb_id}`}
         >
-          <button className="bg-yellow-400 px-2 mt-1 font-black text-sm md:text-xl text-black rounded">
+          <button className="bg-yellow-400 px-1 sm:px-2 mt-1 font-black text-xs sm:text-sm md:text-base lg:text-xl text-black rounded">
             IMDb
           </button>
         </a>
@@ -76,18 +76,16 @@ const Moviedetails = () => {
           alt=""
         />
   
-        {/* Movie title */}
         <div className="content text-white mt-4 md:mt-0 md:ml-[5%]">
-          <h1 className="text-3xl md:text-5xl font-black">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black">
             {info.detail.title ||
               info.detail.name ||
               info.detail.original_name ||
               info.detail.original_title}
           </h1>
   
-          {/* movie information */}
           <div className="flex flex-col text-lg text-white font-bold gap-x-3 mt-4">
-            <div className="flex flex-wrap items-center gap-x-2 text-zinc-200">
+            <div className="flex flex-wrap items-center gap-x-2 text-zinc-200 text-sm sm:text-base">
               <h1>{info.detail.release_date.split("-")[0]}<pre className="font-black text-xl inline"> .</pre></h1>
               <h1>{info.detail.genres.map((g) => g.name).join(" | ")}<pre className="font-black text-xl inline"> .</pre></h1>
               <h1>
@@ -96,26 +94,26 @@ const Moviedetails = () => {
               </h1>
             </div>
   
-            <h1 className="font-medium text-base my-1">
+            <h1 className="font-medium text-sm sm:text-base my-1">
               {info.detail.tagline}
             </h1>
-            <p className="font-normal text-opacity-60 text-base">
+            <p className="font-normal text-opacity-60 text-sm sm:text-base ">
               {info.detail.overview.slice(0, 300)}...
             </p>
-            <h1 className="text-white text-opacity-80 my-2 text-base">
+            <h1 className="text-white text-opacity-80 my-2 text-sm sm:text-base">
               <span className="text-white text-opacity-80 pr-4">Languages</span>{" "}
               {info.translations.join(" | ")}
             </h1>
   
             <div className="flex items-center gap-x-3 mt-2">
               <h1>IMDB</h1>
-              <span className="w-[5vh] h-[5vh] text-md font-semibold bg-yellow-600 text-white rounded-full flex justify-center items-center">
+              <span className="w-[4.5vh] h-[4.5vh] sm:w-[5vh] sm:h-[5vh] text-md font-semibold bg-yellow-600 text-white rounded-full flex justify-center items-center">
                 {(info.detail.vote_average * 10).toFixed()} <sup>%</sup>
               </span>
             </div>
   
             <Link
-              className="mt-3 w-48 rounded-lg text-xl font-bold p-3 bg-zinc-400 bg-opacity-40 hover:bg-opacity-55"
+              className="mt-3 w-full sm:w-48 rounded-lg text-base sm:text-lg md:text-xl font-bold p-3 bg-zinc-400 bg-opacity-40 hover:bg-opacity-55"
               to={`${pathname}/trailer`}
             >
               <i className="ri-play-large-fill mr-2 "></i>
@@ -125,8 +123,7 @@ const Moviedetails = () => {
         </div>
       </div>
   
-      {/* part 4 Recommendations */}
-      <h1 className="text-lg md:text-xl font-semibold text-zinc-300 italic">
+      <h1 className="text-lg md:text-xl font-semibold text-zinc-300 italic mt-8 md:mt-0">
         Recommended
       </h1>
       <HorizontalCards
@@ -135,16 +132,15 @@ const Moviedetails = () => {
         }
       />
   
-      {/* part 3 available on platform */}
       <div className="w-full md:w-[80%] flex flex-col gap-y-3 mt-[2%]">
         {info.watchproviders && info.watchproviders.flatrate && (
-          <div className="flex flex-wrap gap-x-5 md:gap-x-10 items-center text-white mt-4">
-            <i className="text-md font-semibold text-zinc-300">Available On</i>
+          <div className="flex flex-wrap gap-x-3 sm:gap-x-5 md:gap-x-10 items-center text-white mt-4">
+            <i className="text-sm sm:text-base font-semibold text-zinc-300">Available On</i>
             {info.watchproviders.flatrate.map((f, i) => (
               <img
                 key={i}
                 title={f.provider_name}
-                className="w-[5vh] h-[5vh] object-cover rounded-md"
+                className="w-[4.5vh] h-[4.5vh] sm:w-[5vh] sm:h-[5vh] object-cover rounded-md"
                 src={`https://image.tmdb.org/t/p/original/${f.logo_path}`}
                 alt=""
               />
@@ -153,15 +149,15 @@ const Moviedetails = () => {
         )}
   
         {info.watchproviders && info.watchproviders.rent && (
-          <div className="flex flex-wrap gap-x-5 md:gap-x-10 items-center text-white">
-            <i className="text-md font-semibold text-zinc-300 ">
+          <div className="flex flex-wrap gap-x-3 sm:gap-x-5 md:gap-x-10 items-center text-white">
+            <i className="text-sm sm:text-base font-semibold text-zinc-300 ">
               Available On Rent
             </i>
             {info.watchproviders.rent.map((w, i) => (
               <img
                 key={i}
                 title={w.provider_name}
-                className="w-[5vh] h-[5vh] object-cover rounded-md"
+                className="w-[4.5vh] h-[4.5vh] sm:w-[5vh] sm:h-[5vh] object-cover rounded-md"
                 src={`https://image.tmdb.org/t/p/original/${w.logo_path}`}
                 alt=""
               />
@@ -170,15 +166,15 @@ const Moviedetails = () => {
         )}
   
         {info.watchproviders && info.watchproviders.buy && (
-          <div className="flex flex-wrap gap-x-5 md:gap-x-10 items-center text-white">
-            <i className="text-md font-semibold text-zinc-300 ">
+          <div className="flex flex-wrap gap-x-3 sm:gap-x-5 md:gap-x-10 items-center text-white">
+            <i className="text-sm sm:text-base font-semibold text-zinc-300 ">
               Available To Buy
             </i>
             {info.watchproviders.buy.map((b, i) => (
               <img
                 key={i}
                 title={b.provider_name}
-                className="w-[5vh] h-[5vh] object-cover rounded-md"
+                className="w-[4.5vh] h-[4.5vh] sm:w-[5vh] sm:h-[5vh] object-cover rounded-md"
                 src={`https://image.tmdb.org/t/p/original/${b.logo_path}`}
                 alt=""
               />

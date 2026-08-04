@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* primary - #1f1E24
-secondary - #6556cd */
-
 ::-webkit-scrollbar {
     width: 7px;
     height: 7px;   
@@ -20,6 +17,16 @@ secondary - #6556cd */
     border-radius: 10px;
   
 }
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 
 select {
     -webkit-appearance: none;
