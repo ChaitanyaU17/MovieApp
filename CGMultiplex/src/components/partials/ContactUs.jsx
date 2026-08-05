@@ -127,7 +127,7 @@ const ContactUs = () => {
             </a>
 
             <a
-              href="https://x.com/home"
+              href="https://x.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#6556cd] transition-colors duration-200"
